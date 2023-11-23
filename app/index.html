@@ -9,19 +9,17 @@
   </head>
   <body>
     <main>
-      <section>
-        <div>
-          <input
-            type="search"
-            name="key"
-            placeholder="Search..."
-            hx-get="/search"
-            hx-trigger="keyup changed delay:500ms"
-            hx-target="#search-results"
-          />
-        </div>
+      <h1>Fuck You</h1>
 
-        <div id="search-results"></div>
+      <section>
+        <ul id="posts-list">
+          {{ range .Posts }} {{ block "posts-element" .}}
+          <li>
+            <h6>{{ .Title }}</h6>
+            <p>{{ .Body }}</p>
+          </li>
+          {{ end }} {{ end }}
+        </ul>
       </section>
     </main>
   </body>
