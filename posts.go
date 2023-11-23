@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -34,7 +34,7 @@ func getPosts() []PostTypes {
 		os.Exit(1)
 	}
 
-	resData, err := ioutil.ReadAll(res.Body)
+	resData, err := io.ReadAll(res.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -43,7 +43,4 @@ func getPosts() []PostTypes {
 	json.Unmarshal(resData, &data)
 
 	return data.Posts
-
-	// fmt.Print(data.Posts)
-
 }
