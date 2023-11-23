@@ -9,17 +9,6 @@
   </head>
   <body>
     <main>
-      <header>
-        <ul id="stock-list">
-          {{ range .Stocks }} {{ block "stock-element" .}}
-          <li>
-            <h5><strong>${{ .Price }}</strong> {{ .Ticker }}</h5>
-            <h6>{{ .Name }}</h6>
-          </li>
-          {{ end }} {{ end }}
-        </ul>
-      </header>
-
       <section>
         <div>
           <input
