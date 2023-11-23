@@ -27,7 +27,7 @@ type PostTypes struct {
 	Reactions uint16   `json:"reactions"`
 }
 
-func main() {
+func getPosts() []PostTypes {
 	res, err := http.Get(linkRoute)
 	if err != nil {
 		fmt.Print(err.Error())
@@ -42,6 +42,8 @@ func main() {
 	data := PostsRequest{}
 	json.Unmarshal(resData, &data)
 
-	fmt.Print(data)
+	return data.Posts
+
+	// fmt.Print(data.Posts)
 
 }
